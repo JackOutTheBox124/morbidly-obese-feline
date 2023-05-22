@@ -7,7 +7,7 @@ public class Squirrel_Attack : MonoBehaviour
     public GameObject moltenAcorn;
     private float _attackCooldown = .15f;
     private float lastAttack = 0;
-
+    private bool attackSideIsLeft = false;
     // private int attackSpeed;
     // Start is called before the first frame update
     void Start()
@@ -24,11 +24,18 @@ public class Squirrel_Attack : MonoBehaviour
             {
                 lastAttack = Time.time;
 
-                Vector2 myPos = new Vector2(gameObject.transform.position.x, gameObject.transform.position.y);
+                Vector2 leftPos = new Vector2(gameObject.transform.position.x - 0.25f, gameObject.transform.position.y);
+                Vector2 rightPos = new Vector2(gameObject.transform.position.x + 0.25f, gameObject.transform.position.y);
 
                 Quaternion rotation = Quaternion.Euler(0, 0, 0);
-
-                Instantiate(moltenAcorn, myPos, rotation);
+                if(attackSideIsLeft) {
+                    Instantiate(moltenAcorn, leftPos, rotation);
+                    attackSideIsLeft = false;
+                }
+                else {
+                    Instantiate(moltenAcorn, rightPos, rotation);
+                    attackSideIsLeft = true;
+                }
             }
 
         }

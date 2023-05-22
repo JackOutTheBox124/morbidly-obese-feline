@@ -32,5 +32,9 @@ public class Attack_Base : MonoBehaviour
             Destroy(other.gameObject);
             Destroy(this.gameObject);
         }
+        if(other.gameObject.CompareTag("Kevlar"))
+        {
+            Destroy(this.gameObject);
+        }
     }
 }

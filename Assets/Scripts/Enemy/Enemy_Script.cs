@@ -6,6 +6,7 @@ public class Enemy_Script : MonoBehaviour
 {
     public float speed = 1;
     public float downSpeed = 1;
+    //public int health = 1;
     void Start()
     {
         
@@ -20,7 +21,7 @@ public class Enemy_Script : MonoBehaviour
         }
         //Makes the enemy go to the left or right, and down
         gameObject.transform.position += Vector3.left * (speed/10);
-        gameObject.transform.position += Vector3.down * (downSpeed / 100);
+        down();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -30,5 +31,10 @@ public class Enemy_Script : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+    }
+
+    public void down()
+    {
+        gameObject.transform.position += Vector3.down * (downSpeed / 100);
     }
 }

@@ -6,7 +6,7 @@ public class Enemy_Script : MonoBehaviour
 {
     public float speed = 1;
     public float downSpeed = 1;
-    //public int health = 1;
+    public int health = 1;
     void Start()
     {
         

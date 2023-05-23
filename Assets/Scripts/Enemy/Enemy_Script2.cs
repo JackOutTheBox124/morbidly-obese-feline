@@ -19,6 +19,7 @@ public class Enemy_Script2 : Enemy_Script
     {
         Vector2 direction = target.position - transform.position;
         transform.rotation = Quaternion.FromToRotation(Vector3.up, direction);
+        transform.position += transform.up * speed * Time.deltaTime;
     }
 
     private void OnTriggerEnter2D(Collider2D other)

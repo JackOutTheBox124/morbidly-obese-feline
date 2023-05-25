@@ -23,4 +23,13 @@ public class BasicEnemyBullet : MonoBehaviour
     {
         transform.position += dir.normalized * -1 * speed/10;
     }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        //Bullet dies on cat and squrriel
+        if (other.gameObject.CompareTag("Feline") || other.gameObject.CompareTag("Squirrel"))
+        {
+            Destroy(this.gameObject);
+        }
+    }
 }

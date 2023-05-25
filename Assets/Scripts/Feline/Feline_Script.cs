@@ -24,7 +24,6 @@ public class Feline_Script : MonoBehaviour
 
     public void Move()
     {
-     
         Vector3 Movement = new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"), 0);
         
         felineRigidBody.transform.position += Movement * speed * Time.deltaTime;

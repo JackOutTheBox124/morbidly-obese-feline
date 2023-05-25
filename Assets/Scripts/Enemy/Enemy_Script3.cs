@@ -23,8 +23,7 @@ public class Enemy_Script3 : Enemy_Script
     public void fire()
     {
         if (lastAttack + cooldown < Time.time)
-        {
-            
+        { 
             lastAttack = Time.time;
             Instantiate(badBullet, gameObject.transform.position, new Quaternion(0,0,0,0));
         }

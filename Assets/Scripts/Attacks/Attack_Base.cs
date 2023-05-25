@@ -27,7 +27,6 @@ public class Attack_Base : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("TriggerEnter");
         if(other.gameObject.CompareTag("Enemy"))
         {
             Destroy(other.gameObject);

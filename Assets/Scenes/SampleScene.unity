@@ -202,7 +202,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 19135826}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.49, y: -0.42, z: 0}
+  m_LocalPosition: {x: 1000, y: 56.7, z: 0}
   m_LocalScale: {x: 0.2487, y: 0.2487, z: 0.2487}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -292,8 +292,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 141b51b2643ac964aad1075ee226a663, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
-  downSpeed: 1
+  speed: 0.5
+  downSpeed: 0.5
   health: 1
   badBullet: {fileID: 19135826}
   feline: {fileID: 923658855}

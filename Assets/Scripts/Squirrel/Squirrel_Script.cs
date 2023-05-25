@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -20,5 +21,13 @@ public class Squirrel_Script : MonoBehaviour
     void Update()
     {
         squirrelRigidbody.position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("PowerUp"))
+        {
+            Destroy(other.gameObject);
+        }
     }
 }

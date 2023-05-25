@@ -23,7 +23,7 @@ public class Squirrel_Attack : MonoBehaviour
             if (Input.GetKey(KeyCode.Mouse0))
             {
                 lastAttack = Time.time;
-
+                
                 Vector2 leftPos = new Vector2(gameObject.transform.position.x - 0.25f, gameObject.transform.position.y);
                 Vector2 rightPos = new Vector2(gameObject.transform.position.x + 0.25f, gameObject.transform.position.y);
 
@@ -36,6 +36,7 @@ public class Squirrel_Attack : MonoBehaviour
                     Instantiate(moltenAcorn, rightPos, rotation);
                     attackSideIsLeft = true;
                 }
+                
             }
 
         }

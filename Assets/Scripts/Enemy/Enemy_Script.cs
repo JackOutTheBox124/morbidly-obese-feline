@@ -25,6 +25,12 @@ public class Enemy_Script : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+
+        //HeartBurn attack kills enemy
+        if(other.gameObject.CompareTag("HeartBurn"))
+        {
+            Destroy(this.gameObject);
+        }
     }
 
     public void sideToSide()

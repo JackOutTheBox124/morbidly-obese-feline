@@ -25,7 +25,8 @@ public class Attack_Base : MonoBehaviour
         attackRigidBody.velocity = Vector2.up * _speed;
     }
 
-    private void OnTriggerEnter2D(Collider2D other) {
+    private void OnTriggerEnter2D(Collider2D other)
+    {
         Debug.Log("TriggerEnter");
         if(other.gameObject.CompareTag("Enemy"))
         {

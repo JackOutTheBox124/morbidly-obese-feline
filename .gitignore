@@ -28,6 +28,8 @@
 .vscode/
 .vsconfig
 
+.idea/
+
 # Gradle cache directory
 .gradle/
 

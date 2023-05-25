@@ -17,7 +17,7 @@ public class BasicEnemyBullet : MonoBehaviour
     }
     void Update()
     {
-
+        Destroy(gameObject, 5);
         transform.position += dir.normalized * -1 * speed/10;
     }
 }

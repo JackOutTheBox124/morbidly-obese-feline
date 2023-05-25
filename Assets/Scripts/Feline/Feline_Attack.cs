@@ -9,7 +9,6 @@ public class Feline_Attack : MonoBehaviour
     // between 0 and 160
     private float _bloodSugar = 160;
     // between 0 and 100 - displayed to user? maybe just display by dividing base _bloodSugar lol
-    public float bloodSugar = 100;
     Vector3 laserOffset = new Vector3(0f, 6.5f, 0f);
 
     // Start is called before the first frame update
@@ -32,9 +31,19 @@ public class Feline_Attack : MonoBehaviour
             megaLaser.transform.parent = transform;
             Destroy(megaLaser, .05f);
             _bloodSugar--;
-            bloodSugar = _bloodSugar / 1.6f;
-
         }
 
+    }
+
+    private void OnTriggerEnter2D(Collider2D other) {
+        if(other.gameObject.CompareTag("Enemy") || other.gameObject.CompareTag("EnemyBullet"))
+        {
+            Destroy(other.gameObject);
+        }
+    }
+
+    public void addBloodSugar(int bloodSugar)
+    {
+        _bloodSugar += bloodSugar;
     }
 }

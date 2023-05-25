@@ -23,7 +23,7 @@ public class Food_Base : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other) {
         if(other.gameObject.CompareTag("Feline"))
         {
-            
+        //    other.gameObject.GetComponent();
         }
     }
 }

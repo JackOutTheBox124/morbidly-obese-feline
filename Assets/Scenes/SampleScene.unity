@@ -223,7 +223,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifetime: 10
   speed: 1
-  target: {fileID: 923658855}
+  target: {x: 0, y: 0, z: 0}
 --- !u!50 &19135830
 Rigidbody2D:
   serializedVersion: 4
@@ -297,7 +297,6 @@ MonoBehaviour:
   health: 1
   badBullet: {fileID: 19135826}
   feline: {fileID: 923658855}
-  numBullet: 1
   cooldown: 1
 --- !u!70 &275890509
 CapsuleCollider2D:
@@ -5361,6 +5360,7 @@ GameObject:
   m_Component:
   - component: {fileID: 559749454}
   - component: {fileID: 559749453}
+  - component: {fileID: 559749455}
   m_Layer: 0
   m_Name: HeartBurn
   m_TagString: HeartBurn
@@ -5428,13 +5428,39 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 559749452}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -24.008804, y: 4.910712, z: 0}
+  m_LocalPosition: {x: -496.8, y: -300.2, z: 0}
   m_LocalScale: {x: 0.671887, y: 12.835642, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 923658857}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &559749455
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 559749452}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &686249204
 GameObject:
   m_ObjectHideFlags: 0
@@ -5719,7 +5745,7 @@ GameObject:
   - component: {fileID: 923658860}
   m_Layer: 0
   m_Name: Feline
-  m_TagString: Untagged
+  m_TagString: Feline
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5840,7 +5866,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   heartBurn: {fileID: 0}
-  bloodSugar: 175
 --- !u!1 &1010047950
 GameObject:
   m_ObjectHideFlags: 0

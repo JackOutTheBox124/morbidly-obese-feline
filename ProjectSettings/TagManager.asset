@@ -9,6 +9,7 @@ TagManager:
   - PastKiller
   - Kevlar
   - HeartBurn
+  - EnemyBullet
   layers:
   - Default
   - TransparentFX

@@ -134,9 +134,10 @@ GameObject:
   - component: {fileID: 19135828}
   - component: {fileID: 19135827}
   - component: {fileID: 19135829}
+  - component: {fileID: 19135830}
   m_Layer: 0
   m_Name: EvilBullet
-  m_TagString: Untagged
+  m_TagString: EnemyBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -201,7 +202,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 19135826}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.81, y: 2.72, z: 0}
+  m_LocalPosition: {x: -3.49, y: -0.42, z: 0}
   m_LocalScale: {x: 0.2487, y: 0.2487, z: 0.2487}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -221,7 +222,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifetime: 10
-  speed: 2
+  speed: 1
+  target: {fileID: 923658855}
+--- !u!50 &19135830
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 19135826}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &275890506
 GameObject:
   m_ObjectHideFlags: 0
@@ -273,6 +296,7 @@ MonoBehaviour:
   downSpeed: 1
   health: 1
   badBullet: {fileID: 19135826}
+  feline: {fileID: 923658855}
   numBullet: 1
   cooldown: 1
 --- !u!70 &275890509
@@ -5689,7 +5713,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!58 &803375068
 CircleCollider2D:
   m_ObjectHideFlags: 0

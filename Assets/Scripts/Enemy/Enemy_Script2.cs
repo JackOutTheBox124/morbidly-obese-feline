@@ -5,6 +5,7 @@ using UnityEngine;
 public class Enemy_Script2 : Enemy_Script
 {
     public Transform target;
+    public int rotateSpeed = 3;
     void Start()
     {
         target = GameObject.Find("Feline").transform;

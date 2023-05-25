@@ -14,10 +14,13 @@ public class BasicEnemyBullet : MonoBehaviour
         //transform.rotation = Quaternion.Euler(transform.position - target.transform.position);
         target = GameObject.Find("Feline").transform.position;
         dir = (transform.position - target);
+        if (gameObject.name.Contains("(Clone)"))
+        {
+            Destroy(gameObject, lifetime);
+        }
     }
     void Update()
     {
-        Destroy(gameObject, 5);
         transform.position += dir.normalized * -1 * speed/10;
     }
 }

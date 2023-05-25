@@ -35,13 +35,6 @@ public class Feline_Attack : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter2D(Collider2D other) {
-        if(other.gameObject.CompareTag("Enemy") || other.gameObject.CompareTag("EnemyBullet"))
-        {
-            Destroy(other.gameObject);
-        }
-    }
-
     public void addBloodSugar(int bloodSugar)
     {
         _bloodSugar += bloodSugar;

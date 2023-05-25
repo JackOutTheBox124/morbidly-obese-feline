@@ -28,8 +28,5 @@ public class Feline_Health : MonoBehaviour
             health--;
             lastTimeDamaged = Time.time;
         }
-        
     }
-
-
 }

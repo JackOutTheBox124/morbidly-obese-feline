@@ -5402,6 +5402,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5e2f070a226eca498530fe9d7a47459, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stars: {fileID: 348258196}
   basicEnemy: {fileID: 5685789583775670998, guid: cd58d0c145e5967479713145a5303b32, type: 3}
   charger: {fileID: 4512672598293811250, guid: 740d2e1e180f55f4cb4fa07a25d9b4a4, type: 3}
   shooter: {fileID: 5311270018631208712, guid: ff85bbf8e31519d41ad498496d3a08da, type: 3}
@@ -5409,9 +5410,9 @@ MonoBehaviour:
   chargerSwarms: 1
   chargeSwamNum: 3
   chargerSpawnRate: 5
-  shooterSpawnRate: 5
+  shooterSpawnRate: 3
   canSpawn: 0
-  timerToStart: 5
+  timerToStart: 10
 --- !u!212 &715213559
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5596,7 +5597,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 803375067}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.9811287, y: 0.90492284, z: 2.5110157}
+  m_LocalPosition: {x: -21.36, y: -0.78, z: 2.5110157}
   m_LocalScale: {x: 0.2, y: 0.19999999, z: 0.2}
   m_ConstrainProportionsScale: 0
   m_Children: []

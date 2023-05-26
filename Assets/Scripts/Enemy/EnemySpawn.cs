@@ -10,6 +10,7 @@ public class EnemySpawn : MonoBehaviour
     public GameObject basicEnemy;
     public GameObject charger;
     public GameObject shooter;
+    public GameObject boss;
 
     [Header("Spawner Settings")]
     public int basicSpawnRate = 5;
@@ -30,6 +31,8 @@ public class EnemySpawn : MonoBehaviour
 
     [Header("Game Start Settings")]
     public float timerToStart = 5;
+    public float bossSpawnTimer = 10;
+    private bool bossHasSpawned = false;
 
 
     void Start()
@@ -38,6 +41,7 @@ public class EnemySpawn : MonoBehaviour
     }
     void Update()
     {
+        //Particle System
         var main = stars.main;
         //Game Start
         if(timerToStart>1)
@@ -45,12 +49,22 @@ public class EnemySpawn : MonoBehaviour
             timerToStart -= Time.deltaTime * 2;
             main.simulationSpeed = timerToStart;
         }
-        else
+        else if(bossSpawnTimer > 0 && !bossHasSpawned)
         {
             canSpawn = true;
+            bossSpawnTimer -= Time.deltaTime;
+        }
+        else
+        {
+            if(!bossHasSpawned)
+            {
+                Instantiate(boss, transform.position, new Quaternion(0, 0, 0, 0));
+                bossHasSpawned = true;
+            }
         }
 
 
+        //Enemy Spawning
         if(canSpawn)
         {
             //Basic spawning
@@ -85,6 +99,10 @@ public class EnemySpawn : MonoBehaviour
                 shooterLastSpawn = Time.time;
                 Instantiate(shooter, new Vector3(Random.Range(-8, 8), transform.position.y, 0), new Quaternion(0, 0, 0, 0));
             }
+
+
+
+
         }
     }
 }

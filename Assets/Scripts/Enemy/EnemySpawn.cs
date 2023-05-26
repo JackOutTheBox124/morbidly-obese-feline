@@ -58,7 +58,8 @@ public class EnemySpawn : MonoBehaviour
         {
             if(!bossHasSpawned)
             {
-                Instantiate(boss, transform.position, new Quaternion(0, 0, 0, 0));
+                canSpawn = false;
+                Instantiate(boss, new Vector3(transform.position.x, transform.position.y + 4, 0), new Quaternion(0, 0, 0, 0));
                 bossHasSpawned = true;
             }
         }
@@ -99,10 +100,6 @@ public class EnemySpawn : MonoBehaviour
                 shooterLastSpawn = Time.time;
                 Instantiate(shooter, new Vector3(Random.Range(-8, 8), transform.position.y, 0), new Quaternion(0, 0, 0, 0));
             }
-
-
-
-
         }
     }
 }

@@ -8,6 +8,11 @@ public class Squirrel_Attack : MonoBehaviour
     private float _attackCooldown = .15f;
     private float lastAttack = 0;
     private bool attackSideIsLeft = false;
+
+    public void setCooldown(float cool)
+    {
+        _attackCooldown = cool;
+    }
     // private int attackSpeed;
     // Start is called before the first frame update
     void Start()

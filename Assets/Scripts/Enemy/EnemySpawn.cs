@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EnemySpawn : MonoBehaviour
 {
+    public ParticleSystem stars;
+
     [Header("Enemies")]
     public GameObject basicEnemy;
     public GameObject charger;
@@ -27,7 +29,7 @@ public class EnemySpawn : MonoBehaviour
     public bool canSpawn = false;
 
     [Header("Game Start Settings")]
-    public int timerToStart = 5;
+    public float timerToStart = 5;
 
 
     void Start()
@@ -36,6 +38,19 @@ public class EnemySpawn : MonoBehaviour
     }
     void Update()
     {
+        var main = stars.main;
+        //Game Start
+        if(timerToStart>1)
+        {
+            timerToStart -= Time.deltaTime * 2;
+            main.simulationSpeed = timerToStart;
+        }
+        else
+        {
+            canSpawn = true;
+        }
+
+
         if(canSpawn)
         {
             //Basic spawning

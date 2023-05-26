@@ -9,11 +9,13 @@ public class Enemy_Script2 : Enemy_Script
     void Start()
     {
         target = GameObject.Find("Feline").transform;
+        food = GameObject.Find("Food");
     }
     void Update()
     {
         charge();
         down();
+        death();
     }
 
     public void charge()
@@ -31,10 +33,19 @@ public class Enemy_Script2 : Enemy_Script
             Destroy(this.gameObject);
         }
 
-        //HeartBurn attack kills enemy
-        if(other.gameObject.CompareTag("HeartBurn"))
+        //DEATH BY ATTACKS
+        //Normal attack damages enemy
+        if (other.gameObject.CompareTag("MoltenAcorn"))
         {
-            Destroy(this.gameObject);
+            Debug.Log(health);
+            health--;
+        }
+
+        //HeartBurn attack kills enemy
+        if (other.gameObject.CompareTag("HeartBurn"))
+        {
+            health = 0;
+            death();
         }
     }
 }

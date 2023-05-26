@@ -33,10 +33,18 @@ public class Feline_Attack : MonoBehaviour
             _bloodSugar--;
         }
 
+        if(_bloodSugar>160)
+        {
+            _bloodSugar = 160;
+        }
+
     }
 
     public void addBloodSugar(int bloodSugar)
     {
-        _bloodSugar += bloodSugar;
+        if(bloodSugar<160)
+        {
+            _bloodSugar += bloodSugar;
+        }
     }
 }

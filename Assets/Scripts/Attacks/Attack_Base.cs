@@ -29,7 +29,6 @@ public class Attack_Base : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Enemy"))
         {
-            Destroy(other.gameObject);
             Destroy(this.gameObject);
         }
         if(other.gameObject.CompareTag("Kevlar"))

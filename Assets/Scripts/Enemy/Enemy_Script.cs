@@ -4,18 +4,20 @@ using UnityEngine;
 
 public class Enemy_Script : MonoBehaviour
 {
+    public GameObject food;
     public float speed = 1;
     public float downSpeed = 1;
     public int health = 1;
     void Start()
     {
-        
+        food = GameObject.Find("Food");
     }
 
     void Update()
     {
         sideToSide();
         down();
+        death();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -26,9 +28,26 @@ public class Enemy_Script : MonoBehaviour
             Destroy(this.gameObject);
         }
 
+        //DEATH BY ATTACKS
+        //Normal attack damages enemy
+        if(other.gameObject.CompareTag("MoltenAcorn"))
+        {
+            health--;
+        }
+
         //HeartBurn attack kills enemy
         if(other.gameObject.CompareTag("HeartBurn"))
         {
+            health = 0;
+            death();
+        }
+    }
+
+    public void death()
+    {
+        if (health <= 0)
+        {
+            foodSpawn();
             Destroy(this.gameObject);
         }
     }
@@ -47,5 +66,14 @@ public class Enemy_Script : MonoBehaviour
     public void down()
     {
         gameObject.transform.position += Vector3.down * (downSpeed / 100);
+    }
+
+    public void foodSpawn()
+    {
+        int ran = Random.Range(1, 10);
+        if(ran <= 2)
+        {
+            Instantiate(food, transform.position, new Quaternion(0,0,0,0));
+        }
     }
 }

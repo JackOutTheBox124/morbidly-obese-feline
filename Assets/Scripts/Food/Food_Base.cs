@@ -5,26 +5,21 @@ using UnityEngine;
 public class Food_Base : MonoBehaviour
 {
     public Rigidbody2D foodRigidbody;
-    private int speed = 1;
-    // Start is called before the first frame update
+    //private int speed = 1;
     void Start()
     {
         foodRigidbody = GetComponent<Rigidbody2D>();
     }
-
-    // Update is called once per frame
     void Update()
     {
         foodRigidbody.transform.position += Vector3.down * .05f;
-
         // gameObject.transform.position += 
     }
-
     private void OnTriggerEnter2D(Collider2D other) {
         if(other.gameObject.CompareTag("Feline"))
         {
-            Destroy(this.gameObject);
             other.gameObject.GetComponent<Feline_Attack>().addBloodSugar(10);
+            Destroy(this.gameObject);
         }
     }
 }

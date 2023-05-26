@@ -12,6 +12,7 @@ TagManager:
   - EnemyBullet
   - Feline
   - PowerUp
+  - Squirrel
   layers:
   - Default
   - TransparentFX

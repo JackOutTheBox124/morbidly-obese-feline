@@ -27,7 +27,7 @@ public class BasicEnemyBullet : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         //Bullet dies on cat and squrriel
-        if (other.gameObject.CompareTag("Feline") || other.gameObject.CompareTag("Squirrel"))
+        if (other.gameObject.CompareTag("Feline"))
         {
             Destroy(this.gameObject);
         }

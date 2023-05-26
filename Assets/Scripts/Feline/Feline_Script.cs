@@ -7,19 +7,13 @@ public class Feline_Script : MonoBehaviour
     public Rigidbody2D felineRigidBody;
 
     private int speed = 10;
-    // Start is called before the first frame update
     void Start()
     {
         felineRigidBody = GetComponent<Rigidbody2D>();
-        // Vector3 Movement = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-
     }
-
-    // Update is called once per frame
     void Update()
     {
-        // if (Input.GetKey(KeyCode.W)) { felineRigidBody.AddForce(Vector2.up); }
-    Move();
+        Move();
     }
 
     public void Move()

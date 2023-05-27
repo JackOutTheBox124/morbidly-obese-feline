@@ -10,7 +10,7 @@ public class Enemy_Script3 : Enemy_Script
     private float lastAttack = 0;
     void Start()
     {
-        badBullet = GameObject.FindWithTag("EnemyBullet");
+        //badBullet = GameObject.FindWithTag("EnemyBullet");
         feline = GameObject.Find("Feline");
         food = GameObject.Find("Food");
     }

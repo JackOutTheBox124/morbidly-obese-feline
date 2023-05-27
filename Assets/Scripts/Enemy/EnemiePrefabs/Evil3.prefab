@@ -136,9 +136,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 141b51b2643ac964aad1075ee226a663, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  food: {fileID: 0}
   speed: 0.5
   downSpeed: 0.5
   health: 1
-  badBullet: {fileID: 0}
+  badBullet: {fileID: 6362358003610391130, guid: 88dce0f10942f9947af8131da907a1d8, type: 3}
   feline: {fileID: 0}
   cooldown: 1

@@ -32,6 +32,13 @@ public class Enemy_Script4 : Enemy_Script3
             once = true;
         }
 
+        //Sin attack
+        if (bossLastAttack + cooldown < Time.time)
+        {
+            fire(curveBullet);
+            bossLastAttack = Time.time;
+        }
+
 
         //Basic stuff
         death();

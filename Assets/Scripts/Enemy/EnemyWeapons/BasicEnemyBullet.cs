@@ -5,9 +5,9 @@ using UnityEngine;
 public class BasicEnemyBullet : MonoBehaviour
 {
     public int lifetime = 10;
-    public int speed = 2;
+    public float speed = 2;
     public Vector3 target;
-    Vector3 dir;
+    public Vector3 dir;
 
     void Start()
     {
@@ -26,7 +26,7 @@ public class BasicEnemyBullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        //Bullet dies on cat and squrriel
+        //Bullet dies on cat 
         if (other.gameObject.CompareTag("Feline"))
         {
             Destroy(this.gameObject);

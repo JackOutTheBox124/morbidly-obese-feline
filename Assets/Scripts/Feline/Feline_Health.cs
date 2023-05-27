@@ -6,11 +6,11 @@ public class Feline_Health : MonoBehaviour
 {
     private int health = 3;
     private float damageCooldownSeconds = 1.5f;
-    private float lastTimeDamaged;
+    private float lastTimeDamaged = 0;
     // Start is called before the first frame update
     void Start()
     {
-        lastTimeDamaged = Time.time;
+        //lastTimeDamaged = Time.time;
     }
 
     // Update is called once per frame
@@ -23,8 +23,9 @@ public class Feline_Health : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
-        if(other.gameObject.CompareTag("Enemy") && (lastTimeDamaged + damageCooldownSeconds < Time.time))
+        if((other.gameObject.CompareTag("Enemy") || other.gameObject.CompareTag("EnemyBullet")) && (lastTimeDamaged + damageCooldownSeconds < Time.time))
         {
+            Debug.Log("hit!");
             health--;
             lastTimeDamaged = Time.time;
         }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class Squirrel_Attack : MonoBehaviour
 {
     public GameObject moltenAcorn;
-    private float _attackCooldown = .15f;
+    public float _attackCooldown = .15f;
     private float lastAttack = 0;
     private bool attackSideIsLeft = false;
 

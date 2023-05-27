@@ -7,8 +7,8 @@ public class Squirrel_Script : MonoBehaviour
 {
 
     public Rigidbody2D squirrelRigidbody;
-    private int i = 0;
-    private float grabTime = 0; 
+    private float grabTime = 0;
+    public int powerTime = 5;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,25 +23,20 @@ public class Squirrel_Script : MonoBehaviour
     void Update()
     {
         squirrelRigidbody.position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+        if(grabTime + powerTime < Time.time)
+        {
+            this.gameObject.GetComponent<Squirrel_Attack>()._attackCooldown = 0.15f;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("PowerUp"))
         {
-            i = 0;
+            this.gameObject.GetComponent<Squirrel_Attack>()._attackCooldown = 0.001f;
             Destroy(other.gameObject);
-            other.gameObject.GetComponent<Squirrel_Attack>().setCooldown(.001f);
             grabTime = Time.time;
-            while (i != -1)
-            {
-                if (Time.time >= grabTime + 8f)
-                {
-                    other.gameObject.GetComponent<Squirrel_Attack>().setCooldown(.15f);
-                    i = -1;
-                }
-            }
-
         }
     }
 }

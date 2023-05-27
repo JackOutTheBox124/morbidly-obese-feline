@@ -37,7 +37,6 @@ public class Enemy_Script2 : Enemy_Script
         //Normal attack damages enemy
         if (other.gameObject.CompareTag("MoltenAcorn"))
         {
-            Debug.Log(health);
             health--;
         }
 

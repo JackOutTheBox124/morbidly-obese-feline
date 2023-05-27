@@ -38,8 +38,7 @@ public class Enemy_Script : MonoBehaviour
         //HeartBurn attack kills enemy
         if(other.gameObject.CompareTag("HeartBurn"))
         {
-            health = 0;
-            death();
+            health--;
         }
     }
 

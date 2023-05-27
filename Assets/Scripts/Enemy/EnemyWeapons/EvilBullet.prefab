@@ -100,8 +100,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifetime: 10
-  speed: 1
+  speed: 0.5
   target: {x: 0, y: 0, z: 0}
+  dir: {x: 0, y: 0, z: 0}
 --- !u!50 &6362358003610391134
 Rigidbody2D:
   serializedVersion: 4

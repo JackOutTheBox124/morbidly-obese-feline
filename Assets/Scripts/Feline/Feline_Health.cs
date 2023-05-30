@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Feline_Health : MonoBehaviour
 {
@@ -23,6 +24,9 @@ public class Feline_Health : MonoBehaviour
         if(health < 1)
         {
             Destroy(gameObject);
+
+            Scene scene = SceneManager.GetActiveScene();
+            SceneManager.LoadScene(scene.name);
         }
     }
 

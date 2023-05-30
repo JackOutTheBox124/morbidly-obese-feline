@@ -5295,15 +5295,24 @@ MonoBehaviour:
   basicEnemy: {fileID: 5685789583775670998, guid: cd58d0c145e5967479713145a5303b32, type: 3}
   charger: {fileID: 4512672598293811250, guid: 740d2e1e180f55f4cb4fa07a25d9b4a4, type: 3}
   shooter: {fileID: 5311270018631208712, guid: ff85bbf8e31519d41ad498496d3a08da, type: 3}
+<<<<<<< Updated upstream
   boss: {fileID: 5116335793939139423, guid: 42d1a1a802a05d447a2633cd23b5788e, type: 3}
+=======
+  boss: {fileID: 0}
+>>>>>>> Stashed changes
   basicSpawnRate: 1
   chargerSwarms: 1
   chargeSwamNum: 3
   chargerSpawnRate: 5
   shooterSpawnRate: 3
   canSpawn: 0
+<<<<<<< Updated upstream
   timerToStart: 1
   bossSpawnTimer: 0
+=======
+  timerToStart: 10
+  bossSpawnTimer: 10
+>>>>>>> Stashed changes
 --- !u!212 &715213559
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5808,6 +5817,7 @@ GameObject:
   - component: {fileID: 1010047954}
   - component: {fileID: 1010047955}
   - component: {fileID: 1010047956}
+  - component: {fileID: 1010047957}
   m_Layer: 0
   m_Name: Squirrel
   m_TagString: Squirrel
@@ -5877,10 +5887,10 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1f9d18a19f8a81049ad376620111f3e4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
-  m_FlipY: 1
+  m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
@@ -5897,7 +5907,7 @@ Transform:
   m_GameObject: {fileID: 1010047950}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.01, y: -1.23, z: 0}
-  m_LocalScale: {x: 0.5860574, y: 0.741314, z: 1}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1347031842}
@@ -5949,8 +5959,8 @@ BoxCollider2D:
   m_Offset: {x: 0, y: -0.21133333}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.28866667}
-    oldSize: {x: 1, y: 1}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 8, y: 8}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -5959,6 +5969,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!95 &1010047957
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1010047950}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b572eb8d56311ad48964486d10852866, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1112151096
 GameObject:
   m_ObjectHideFlags: 0
@@ -6230,7 +6261,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1347031840}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -26.482046, y: 0.43166596, z: 0}
+  m_LocalPosition: {x: -63.1, y: 0.43166596, z: 0}
   m_LocalScale: {x: 0.21729265, y: 0.28235888, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

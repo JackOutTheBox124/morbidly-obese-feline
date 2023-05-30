@@ -14,12 +14,29 @@ public class Feline_Attack : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        heartBurn = GameObject.FindWithTag("HeartBurn");
+        //heartBurn = GameObject.FindWithTag("HeartBurn");
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKey(KeyCode.Space) && _bloodSugar > 0)
+        {
+            heartBurn.gameObject.SetActive(true);
+            _bloodSugar--;
+            heartBurn.gameObject.transform.position = this.transform.position + new Vector3(0,7,0);
+        }
+        else
+        {
+            heartBurn.gameObject.SetActive(false);
+        }
+
+        if (_bloodSugar > 160)
+        {
+            _bloodSugar = 160;
+        }
+
+        /*
         if (Input.GetKey(KeyCode.Space) && _bloodSugar > 0)
         {
             Vector2 felinePos = new Vector2(gameObject.transform.position.x, gameObject.transform.position.y);
@@ -37,7 +54,7 @@ public class Feline_Attack : MonoBehaviour
         {
             _bloodSugar = 160;
         }
-
+        */
     }
 
     public void addBloodSugar(int bloodSugar)

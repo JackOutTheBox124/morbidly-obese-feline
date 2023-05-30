@@ -9,6 +9,7 @@ public class Squirrel_Script : MonoBehaviour
     public Rigidbody2D squirrelRigidbody;
     private float grabTime = 0;
     public int powerTime = 5;
+    public float powerUpSpeed = 0.1f;
     // Start is called before the first frame update
     void Start()
     {
@@ -34,7 +35,7 @@ public class Squirrel_Script : MonoBehaviour
     {
         if (other.gameObject.CompareTag("PowerUp"))
         {
-            this.gameObject.GetComponent<Squirrel_Attack>()._attackCooldown = 0.001f;
+            this.gameObject.GetComponent<Squirrel_Attack>()._attackCooldown = powerUpSpeed;
             Destroy(other.gameObject);
             grabTime = Time.time;
         }

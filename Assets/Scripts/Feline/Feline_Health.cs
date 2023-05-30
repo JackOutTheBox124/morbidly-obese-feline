@@ -33,7 +33,7 @@ public class Feline_Health : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other) {
         if((other.gameObject.CompareTag("Enemy") || other.gameObject.CompareTag("EnemyBullet")) && (lastTimeDamaged + damageCooldownSeconds < Time.time))
         {
-            Debug.Log("hit!");
+            Debug.Log(other.gameObject.name + "   " + other.gameObject.CompareTag("EnemyBullet"));
             health--;
             lastTimeDamaged = Time.time;
 

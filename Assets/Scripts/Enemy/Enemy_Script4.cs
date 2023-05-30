@@ -4,65 +4,108 @@ using UnityEngine;
 
 public class Enemy_Script4 : Enemy_Script3
 {
+    [Header("Weapons")]
     public GameObject curveBullet;
     public GameObject bulletNoTarget;
+    public GameObject fastTriangle;
 
-    private float bossLastAttack = 0;
+    [Header("Constant Attack")]
     public int numbullet = 10;
     public float currRot = -90;
+    public int currRotChange = 10;
+    private int currRotSet = -90;
     private float rotAmount;
-    private bool once = false;
+    private float bossLastAttack = 0;
+
+    [Header("Sin Attack")]
+    public int sinCoolDown = 1;
+    private float lastSinAttack = 0f;
+
+    [Header("Fast Triangles")]
+    public int numTriBullets = 5;
+    public float triangleCoolDown = 2;
+    public float circleRad = 2;
+    private float lastTriAttack = 0f;
+    public float currRotTri = -90;
+    private float currTriChange;
+
     void Start()
     {
-        rotAmount = 180 / numbullet;
-        Debug.Log(rotAmount);
+        rotAmount = 360 / numbullet;
+        currTriChange = 360 / numTriBullets;
     }
     void Update()
     {
-        //Attacks
-        //Shotgun Attack
-        if(!once)
+        //ATTACKS
+        //Constant Bullet Hell
+        if(bossLastAttack + cooldown < Time.time)
         {
-            for (int i = 0; i < numbullet+1; i++)
+            for (int i = 0; i < numbullet; i++)
             {
-                Debug.Log(currRot);
-                fire(Quaternion.Euler(0, 0, currRot));
+                fire(Quaternion.Euler(0, 0, currRot), bulletNoTarget);
                 currRot += rotAmount;
             }
-            once = true;
+            bossLastAttack = Time.time;
+            currRotSet += currRotChange;
+            currRot = currRotSet;
         }
 
+        /*
         //Sin attack
-        if (bossLastAttack + cooldown < Time.time)
+        if (lastSinAttack + sinCoolDown < Time.time)
         {
             fire(curveBullet);
-            bossLastAttack = Time.time;
+            lastSinAttack = Time.time;
+        }
+        */
+
+        //Triangle Circle
+        if(lastTriAttack + triangleCoolDown < Time.time)
+        {
+            for(int i=0; i<numTriBullets; i++)
+            {
+                fire(new Vector3(circleRad * Mathf.Cos(currRotTri), circleRad * Mathf.Sin(currRotTri), 0) + transform.position, fastTriangle);
+                currRotTri += currTriChange;
+                Debug.Log(currRotTri);
+                lastTriAttack = Time.time;
+            }
         }
 
 
         //Basic stuff
         death();
-        if(transform.position.y > 4.2)
+        if (transform.position.y > 4.2)
         {
             down();
         }
         else
         {
-            sideToSide();
+            sideToSideBoss();
         }
     }
 
-    //Allows you to choose what bullet is being fired
-    public void fire(GameObject bullet)
+    public void sideToSideBoss()
     {
-        bossLastAttack = Time.time;
-        Instantiate(bullet, gameObject.transform.position, new Quaternion(0, 0, 0, 0));
+        //Changes the direction of the enemy when it reaches a certain x world point
+        if (transform.position.x < -4 || transform.position.x > 4)
+        {
+            speed *= -1;
+        }
+        //Makes the enemy go to the left or right, and down
+        gameObject.transform.position += Vector3.left * (speed / 10);
     }
 
+
+
+
     //Only works with non-targetting bullets, is able to set the bullets direction
-    public void fire(Quaternion rot)
+    public void fire(Quaternion rot, GameObject bullet)
     {
-        bossLastAttack = Time.time;
-        Instantiate(bulletNoTarget, this.gameObject.transform.position, rot);
+        Instantiate(bullet, this.gameObject.transform.position, rot);
+    }
+
+    public void fire(Vector3 pos, GameObject bullet)
+    {
+        Instantiate(bullet, pos, Quaternion.identity);
     }
 }

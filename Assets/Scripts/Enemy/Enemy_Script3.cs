@@ -20,14 +20,14 @@ public class Enemy_Script3 : Enemy_Script
         down();
         if(lastAttack + cooldown < Time.time)
         {
-            fire();
+            fire(badBullet);
             lastAttack = Time.time;
         }
         death();
     }
 
-    public void fire()
+    public void fire(GameObject bullet)
     {
-        Instantiate(badBullet, gameObject.transform.position, new Quaternion(0,0,0,0));
+        Instantiate(bullet, gameObject.transform.position, new Quaternion(0, 0, 0, 0));
     }
 }

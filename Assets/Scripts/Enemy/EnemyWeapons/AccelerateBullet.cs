@@ -21,12 +21,4 @@ public class AccelerateBullet : BasicEnemyBullet
         transform.position += dir.normalized * -1 * speed / 10;
         speed += acceleration * Time.deltaTime;
     }
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        //Bullet dies on cat 
-        if (other.gameObject.CompareTag("Feline"))
-        {
-            Destroy(this.gameObject);
-        }
-    }
 }

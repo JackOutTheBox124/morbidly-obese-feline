@@ -134,6 +134,7 @@ MonoBehaviour:
   curveBullet: {fileID: 202206127472770494, guid: 78900a62d2b87ec409f803e996e325e8, type: 3}
   bulletNoTarget: {fileID: 7858890202637148822, guid: d4549f646ae60a84aaf34b1e675b35d6, type: 3}
   fastTriangle: {fileID: 7564840461481016010, guid: 9b0bd0efc33885a459323ba2c1af1950, type: 3}
+  missle: {fileID: 2022024245722493408, guid: c0bb243122e25f34a87b2bde3662c063, type: 3}
   numbullet: 10
   currRot: -90
   currRotChange: 10
@@ -142,3 +143,5 @@ MonoBehaviour:
   triangleCoolDown: 1
   circleRad: 1.5
   currRotTri: 0
+  numMissles: 5
+  missleCoolDown: 0.75

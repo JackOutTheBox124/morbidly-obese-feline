@@ -8,6 +8,7 @@ public class Enemy_Script4 : Enemy_Script3
     public GameObject curveBullet;
     public GameObject bulletNoTarget;
     public GameObject fastTriangle;
+    public GameObject missle;
 
     [Header("Constant Attack")]
     public int numbullet = 10;
@@ -29,6 +30,17 @@ public class Enemy_Script4 : Enemy_Script3
     public float currRotTri = -90;
     private float currTriChange;
 
+    [Header("Missles")]
+    public int numMissles = 5;
+    public float missleCoolDown;
+    private float lastMissleAttack = 0;
+
+    [Header("Attack Settings")]
+    public int randAttackGen;
+    public float  attackTimer = 1;
+    private float lastAttackTimer;
+
+
     void Start()
     {
         rotAmount = 360 / numbullet;
@@ -36,41 +48,61 @@ public class Enemy_Script4 : Enemy_Script3
     }
     void Update()
     {
+        randAttackGen = Random.Range(0, 4);
+
         //ATTACKS
         //Constant Bullet Hell
-        if(bossLastAttack + cooldown < Time.time)
+
+        if(lastAttackTimer + attackTimer < Time.time)
         {
-            for (int i = 0; i < numbullet; i++)
+            if (randAttackGen == 0)
             {
-                fire(Quaternion.Euler(0, 0, currRot), bulletNoTarget);
-                currRot += rotAmount;
+                if (bossLastAttack + cooldown < Time.time)
+                {
+                    for (int i = 0; i < numbullet; i++)
+                    {
+                        fire(Quaternion.Euler(0, 0, currRot), bulletNoTarget);
+                        currRot += rotAmount;
+                    }
+                    bossLastAttack = Time.time;
+                    currRotSet += currRotChange;
+                    currRot = currRotSet;
+                }
             }
-            bossLastAttack = Time.time;
-            currRotSet += currRotChange;
-            currRot = currRotSet;
-        }
 
-        /*
-        //Sin attack
-        if (lastSinAttack + sinCoolDown < Time.time)
-        {
-            fire(curveBullet);
-            lastSinAttack = Time.time;
-        }
-        */
-
-        //Triangle Circle
-        if(lastTriAttack + triangleCoolDown < Time.time)
-        {
-            for(int i=0; i<numTriBullets; i++)
+            if (randAttackGen == 1)
             {
-                fire(new Vector3(circleRad * Mathf.Cos(currRotTri), circleRad * Mathf.Sin(currRotTri), 0) + transform.position, fastTriangle);
-                currRotTri += currTriChange;
-                Debug.Log(currRotTri);
-                lastTriAttack = Time.time;
+                if (lastSinAttack + sinCoolDown < Time.time)
+                {
+                    fire(curveBullet);
+                    lastSinAttack = Time.time;
+                }
             }
-        }
 
+            if (randAttackGen == 2)
+            {
+                if (lastTriAttack + triangleCoolDown < Time.time)
+                {
+                    for (int i = 0; i < numTriBullets; i++)
+                    {
+                        fire(new Vector3(circleRad * Mathf.Cos(currRotTri), circleRad * Mathf.Sin(currRotTri), 0) + transform.position, fastTriangle);
+                        currRotTri += currTriChange;
+                        lastTriAttack = Time.time;
+                    }
+                }
+            }
+
+            if (randAttackGen == 3)
+            {
+                if (lastMissleAttack + missleCoolDown < Time.time)
+                {
+                    fire(missle);
+                    lastMissleAttack = Time.time;
+                }
+            }
+            lastAttackTimer = Time.time;
+        }
+        
 
         //Basic stuff
         death();

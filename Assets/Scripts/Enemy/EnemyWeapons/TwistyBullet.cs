@@ -6,9 +6,10 @@ public class TwistyBullet : BasicEnemyBullet
 {
     private float creationTime;
     private float timeSinceCreation;
-    private Vector3 perpDir;
+    private Vector3 sinDir;
     void Start()
     {
+        //Marks the time this object was created
         creationTime = Time.time;
 
         target = GameObject.Find("Feline").transform.position;
@@ -18,13 +19,17 @@ public class TwistyBullet : BasicEnemyBullet
             Destroy(gameObject, lifetime);
         }
     }
+
+    //Gives the bullet a wavy pattern
     void Update()
     {
-        perpDir.x = dir.y;
-        perpDir.y = dir.x * -1;
+        //Swaps the sinDir x and y with normal dir x and Y
+        sinDir.x = dir.y;
+        sinDir.y = dir.x * -1;
 
+        //Moves the bullet
         timeSinceCreation = Time.time - creationTime;
         gameObject.transform.position += (dir.normalized * -1 * speed / 10);
-        gameObject.transform.position += perpDir.normalized * Mathf.Sin(timeSinceCreation * 10) / 10;
+        gameObject.transform.position += sinDir.normalized * Mathf.Sin(timeSinceCreation * 10) / 10;
     }
 }

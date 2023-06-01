@@ -11,14 +11,14 @@ public class Feline_Health : MonoBehaviour
     private float lastTimeDamaged = 0;
 
     private Coroutine blinkDaFeline;
-    // Start is called before the first frame update
+    // Gets the sprite renderer component from the inspector
     void Start()
     {
         felineSpriteRenderer = GetComponent<SpriteRenderer>();
-        //lastTimeDamaged = Time.time;
     }
 
     // Update is called once per frame
+    //Checks if the cats healthis less than one each frame, and if so it destroys it
     void Update()
     {
         if(health < 1)
@@ -30,6 +30,7 @@ public class Feline_Health : MonoBehaviour
         }
     }
 
+    //Removes health from the cat, and gives it immunity frames
     private void OnTriggerEnter2D(Collider2D other) {
         if((other.gameObject.CompareTag("Enemy") || other.gameObject.CompareTag("EnemyBullet")) && (lastTimeDamaged + damageCooldownSeconds < Time.time))
         {

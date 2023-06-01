@@ -8,12 +8,15 @@ public class Enemy_Script3 : Enemy_Script
     public GameObject feline;
     public float cooldown = 1;
     private float lastAttack = 0;
+
+    //Finds the food and the feline object
     void Start()
     {
-        //badBullet = GameObject.FindWithTag("EnemyBullet");
         feline = GameObject.Find("Feline");
         food = GameObject.Find("Food");
     }
+
+    //Moves the enemy down and side to side, and fires a bullet whenever it can
     void Update()
     {
         sideToSide();
@@ -26,6 +29,7 @@ public class Enemy_Script3 : Enemy_Script
         death();
     }
 
+    //Creates the fire method, you pass in a gameobject and it creates it at this position and with rotation 0,0,0
     public void fire(GameObject bullet)
     {
         Instantiate(bullet, gameObject.transform.position, new Quaternion(0, 0, 0, 0));

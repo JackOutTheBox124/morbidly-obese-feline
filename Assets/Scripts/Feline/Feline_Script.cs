@@ -11,12 +11,15 @@ public class Feline_Script : MonoBehaviour
     {
         felineRigidBody = GetComponent<Rigidbody2D>();
     }
+
+    //Moves the feline when you press it
     void Update()
     {
-        Debug.Log(Time.time);
         Move();
     }
 
+    //Move method, detects when you input a key and then multiplys it with speed at a raw axis from -1 to 1 in the verticle and horizontal direction based on which key you press
+    //Keeps you from moving out of bounds
     public void Move()
     {
         Vector3 Movement = new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"), 0);

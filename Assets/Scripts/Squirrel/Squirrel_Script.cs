@@ -13,6 +13,7 @@ public class Squirrel_Script : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //Keeps the squirrel from being jittery and makes it look nicer
         QualitySettings.vSyncCount = 1;
         Application.targetFrameRate = 60;
         Cursor.visible = false;
@@ -21,6 +22,7 @@ public class Squirrel_Script : MonoBehaviour
         mousePosition.z += Camera.main.nearClipPlane;
     }
     // Update is called once per frame
+    //places the squrriel at the mouses location
     void Update()
     {
         squirrelRigidbody.position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -31,6 +33,7 @@ public class Squirrel_Script : MonoBehaviour
         }
     }
 
+    //if you touch a powerup, it increases the firerate
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("PowerUp"))

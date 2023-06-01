@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class NoTargetBullet : BasicEnemyBullet
 {
+    //Destroys this object after a certain amount of time
     void Start()
     {
         if (gameObject.name.Contains("(Clone)"))
@@ -12,6 +13,7 @@ public class NoTargetBullet : BasicEnemyBullet
         }
     }
 
+    //Just goes forward based on its rotation
     void Update()
     {
         transform.position += transform.up * -1 * speed / 100;

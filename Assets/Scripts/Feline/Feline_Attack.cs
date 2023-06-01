@@ -17,7 +17,7 @@ public class Feline_Attack : MonoBehaviour
         //heartBurn = GameObject.FindWithTag("HeartBurn");
     }
 
-    // Update is called once per frame
+    // Checks each frame if your pressing space and you have ammo(blood sugar), then fires the laser
     void Update()
     {
         if (Input.GetKey(KeyCode.Space) && _bloodSugar > 0)
@@ -35,26 +35,6 @@ public class Feline_Attack : MonoBehaviour
         {
             _bloodSugar = 160;
         }
-
-        /*
-        if (Input.GetKey(KeyCode.Space) && _bloodSugar > 0)
-        {
-            Vector2 felinePos = new Vector2(gameObject.transform.position.x, gameObject.transform.position.y);
-            Quaternion rotation = Quaternion.Euler(0, 0, 0);
-
-            // Instantiate(heartBurn, leftPos, rotation);
-
-            GameObject megaLaser = Instantiate(heartBurn, transform.position + laserOffset, Quaternion.identity);
-            megaLaser.transform.parent = transform;
-            Destroy(megaLaser, .05f);
-            _bloodSugar--;
-        }
-
-        if(_bloodSugar>160)
-        {
-            _bloodSugar = 160;
-        }
-        */
     }
 
     /// <summary>

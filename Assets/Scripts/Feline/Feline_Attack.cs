@@ -57,9 +57,14 @@ public class Feline_Attack : MonoBehaviour
         */
     }
 
+    /// <summary>
+    /// Add blood sugar to the <br/>
+    /// The sprite will flash for <see cref="damageCooldownSeconds"/> seconds.
+    /// </summary>
+    /// <param name="bloodSugar">amount of blood sugar to add to the private <see cref="_bloodSugar"/> variable.</param>
     public void addBloodSugar(int bloodSugar)
     {
-        if(bloodSugar<160)
+        if(bloodSugar < 160)
         {
             _bloodSugar += bloodSugar;
         }

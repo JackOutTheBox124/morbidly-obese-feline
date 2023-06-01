@@ -46,6 +46,11 @@ public class Feline_Health : MonoBehaviour
         }
     }
 
+
+    /// <summary>
+    /// Make the cat's sprite flash between 0% and 100% transparency.<br/>
+    /// The sprite will flash for <see cref="damageCooldownSeconds"/> seconds.<br/>
+    /// </summary>
     private IEnumerator BlinkDaFeline()
     {
 

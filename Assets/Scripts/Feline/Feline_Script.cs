@@ -13,6 +13,7 @@ public class Feline_Script : MonoBehaviour
     }
     void Update()
     {
+        Debug.Log(Time.time);
         Move();
     }
 

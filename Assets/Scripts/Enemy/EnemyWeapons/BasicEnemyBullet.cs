@@ -19,11 +19,13 @@ public class BasicEnemyBullet : MonoBehaviour
             Destroy(gameObject, lifetime);
         }
     }
+    //Moves the bullet
     void Update()
     {
         transform.position += dir.normalized * -1 * speed/10;
     }
 
+    //Kills this bullet when it collides with the cat
     private void OnTriggerEnter2D(Collider2D other)
     {
         //Bullet dies on cat 

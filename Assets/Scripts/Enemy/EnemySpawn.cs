@@ -43,11 +43,23 @@ public class EnemySpawn : MonoBehaviour
     }
     void Update()
     {
-        if(Time.time > 10)
+        //Music control for the game
+        if(timerToStart > 1)
         {
-            openingMusic.enabled = false;
-            loopMusic.enabled = true;
+            openingMusic.enabled = true;
+            loopMusic.enabled = false;
         }
+        else if(!bossHasSpawned)
+        {
+            loopMusic.enabled = true;
+            openingMusic.enabled = false;
+        }
+        else
+        {
+            openingMusic.enabled = true;
+            loopMusic.enabled = false;
+        }
+
 
 
         //Particle System
@@ -58,11 +70,13 @@ public class EnemySpawn : MonoBehaviour
             timerToStart -= Time.deltaTime * 2;
             main.simulationSpeed = timerToStart;
         }
+        //If boss hasn't spawned, spawn enemies
         else if(bossSpawnTimer > 0 && !bossHasSpawned)
         {
             canSpawn = true;
             bossSpawnTimer -= Time.deltaTime;
         }
+        //Spawns the boss 
         else
         {
             if(!bossHasSpawned)

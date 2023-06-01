@@ -115,13 +115,13 @@ MonoBehaviour:
   currRotChange: 10
   numSinAttack: 3
   sinCoolDown: 1
-  numTriAttack: 3
+  numTriAttack: 4
   numTriBullets: 12
   triangleCoolDown: 1
   circleRad: 1.5
   currRotTri: 0
-  numMissleAttack: 5
-  missleCoolDown: 0.5
+  numMissleAttack: 6
+  missleCoolDown: 0.35
   isAttackDone: 1
   nextAttackTimerSetter: 2
 --- !u!60 &8332324293525028942

@@ -161,4 +161,4 @@ MonoBehaviour:
   food: {fileID: 0}
   speed: 1
   downSpeed: 1
-  health: 2
+  health: 1

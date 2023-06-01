@@ -5,6 +5,8 @@ using UnityEngine;
 public class EnemySpawn : MonoBehaviour
 {
     public ParticleSystem stars;
+    public AudioSource openingMusic;
+    public AudioSource loopMusic;
 
     [Header("Enemies")]
     public GameObject basicEnemy;
@@ -41,6 +43,13 @@ public class EnemySpawn : MonoBehaviour
     }
     void Update()
     {
+        if(Time.time > 10)
+        {
+            openingMusic.enabled = false;
+            loopMusic.enabled = true;
+        }
+
+
         //Particle System
         var main = stars.main;
         //Game Start

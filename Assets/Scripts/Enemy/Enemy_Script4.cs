@@ -10,7 +10,8 @@ public class Enemy_Script4 : Enemy_Script3
     public GameObject fastTriangle;
     public GameObject missle;
 
-    [Header("Constant Attack")]
+    [Header("Bullet Hell Attack")]
+    public int numHellAttack = 1;
     public int numbullet = 10;
     public float currRot = -90;
     public int currRotChange = 10;
@@ -19,10 +20,12 @@ public class Enemy_Script4 : Enemy_Script3
     private float bossLastAttack = 0;
 
     [Header("Sin Attack")]
+    public int numSinAttack = 1;
     public int sinCoolDown = 1;
     private float lastSinAttack = 0f;
 
     [Header("Fast Triangles")]
+    public int numTriAttack = 1;
     public int numTriBullets = 5;
     public float triangleCoolDown = 2;
     public float circleRad = 2;
@@ -31,30 +34,42 @@ public class Enemy_Script4 : Enemy_Script3
     private float currTriChange;
 
     [Header("Missles")]
-    public int numMissles = 5;
+    public int numMissleAttack = 1;
     public float missleCoolDown;
     private float lastMissleAttack = 0;
 
     [Header("Attack Settings")]
-    public int randAttackGen;
-    public float  attackTimer = 1;
-    private float lastAttackTimer;
+    public bool isAttackDone = true;
+    private int numAttacks = 0;
+    public float nextAttackTimerSetter = 1;
+    private float nextAttackTimer;
+    private int randAttackGen;
 
 
     void Start()
     {
         rotAmount = 360 / numbullet;
         currTriChange = 360 / numTriBullets;
+        nextAttackTimer = nextAttackTimerSetter;
     }
     void Update()
     {
-        randAttackGen = Random.Range(0, 4);
+        if(isAttackDone)
+        {
+            randAttackGen = Random.Range(0, 4);
+            isAttackDone = false;
+            numAttacks = 0;
+        }
+
+        if(nextAttackTimer > 0)
+        {
+            nextAttackTimer -= Time.deltaTime;
+        }
 
         //ATTACKS
-        //Constant Bullet Hell
-
-        if(lastAttackTimer + attackTimer < Time.time)
+        if(nextAttackTimer <= 0)
         {
+            //BULLET HELL ATTACK
             if (randAttackGen == 0)
             {
                 if (bossLastAttack + cooldown < Time.time)
@@ -67,18 +82,35 @@ public class Enemy_Script4 : Enemy_Script3
                     bossLastAttack = Time.time;
                     currRotSet += currRotChange;
                     currRot = currRotSet;
+                    numAttacks++;
+                }
+
+                if (numAttacks >= numHellAttack)
+                {
+                    nextAttackTimer = nextAttackTimerSetter;
+                    isAttackDone = true;
                 }
             }
 
+            //SIN ATTACK
             if (randAttackGen == 1)
             {
                 if (lastSinAttack + sinCoolDown < Time.time)
                 {
                     fire(curveBullet);
                     lastSinAttack = Time.time;
+                    numAttacks++;
+                }
+
+                if(numAttacks >= numSinAttack)
+                {
+                    nextAttackTimer = nextAttackTimerSetter;
+                    isAttackDone = true;
                 }
             }
 
+            
+            //TRIANGLE ATTACK
             if (randAttackGen == 2)
             {
                 if (lastTriAttack + triangleCoolDown < Time.time)
@@ -89,18 +121,33 @@ public class Enemy_Script4 : Enemy_Script3
                         currRotTri += currTriChange;
                         lastTriAttack = Time.time;
                     }
+                    numAttacks++;
+                }
+
+                if (numAttacks >= numTriAttack)
+                {
+                    nextAttackTimer = nextAttackTimerSetter;
+                    isAttackDone = true;
                 }
             }
 
+            //MISSLE ATTACK
             if (randAttackGen == 3)
             {
                 if (lastMissleAttack + missleCoolDown < Time.time)
                 {
                     fire(missle);
                     lastMissleAttack = Time.time;
+                    numAttacks++;
+                }
+
+                if (numAttacks >= numMissleAttack)
+                {
+                    nextAttackTimer = nextAttackTimerSetter;
+                    isAttackDone = true;
                 }
             }
-            lastAttackTimer = Time.time;
+            
         }
         
 

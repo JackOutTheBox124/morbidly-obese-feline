@@ -206,7 +206,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &19135829
 MonoBehaviour:
@@ -222,6 +222,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifetime: 10
   speed: 2
+  target: {x: 0, y: 0, z: 0}
+  dir: {x: 0, y: 0, z: 0}
 --- !u!1 &275890506
 GameObject:
   m_ObjectHideFlags: 0
@@ -269,11 +271,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 141b51b2643ac964aad1075ee226a663, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  food: {fileID: 0}
   speed: 1
   downSpeed: 1
   health: 1
   badBullet: {fileID: 19135826}
-  numBullet: 1
+  feline: {fileID: 0}
   cooldown: 1
 --- !u!70 &275890509
 CapsuleCollider2D:
@@ -5174,7 +5177,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!1 &363355792
 GameObject:
@@ -5205,7 +5208,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &382730362
 GameObject:
@@ -5247,7 +5250,7 @@ Transform:
   - {fileID: 1361417190}
   - {fileID: 1337023886}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &408600321
 GameObject:
@@ -5333,10 +5336,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d61d09eb3b3693d438cf2499c68ee038, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  food: {fileID: 0}
   speed: 5
   downSpeed: 1
   health: 1
   target: {fileID: 923658857}
+  rotateSpeed: 3
 --- !u!212 &408600325
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5942,10 +5947,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d61d09eb3b3693d438cf2499c68ee038, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  food: {fileID: 0}
   speed: 5
   downSpeed: 1
   health: 1
   target: {fileID: 923658857}
+  rotateSpeed: 3
 --- !u!212 &806883154
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6085,7 +6092,7 @@ Transform:
   - {fileID: 559749454}
   - {fileID: 803375071}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &923658858
 MonoBehaviour:
@@ -6134,7 +6141,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   heartBurn: {fileID: 0}
-  bloodSugar: 175
 --- !u!1 &1010047950
 GameObject:
   m_ObjectHideFlags: 0
@@ -6242,7 +6248,7 @@ Transform:
   m_Children:
   - {fileID: 1347031842}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1010047954
 MonoBehaviour:
@@ -6257,6 +6263,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   squirrelRigidbody: {fileID: 0}
+  powerTime: 5
+  powerUpSpeed: 0.1
 --- !u!114 &1010047955
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6270,6 +6278,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moltenAcorn: {fileID: 0}
+  _attackCooldown: 0.15
 --- !u!1 &1257651746
 GameObject:
   m_ObjectHideFlags: 0
@@ -6427,10 +6436,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d61d09eb3b3693d438cf2499c68ee038, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  food: {fileID: 0}
   speed: 5
   downSpeed: 1
   health: 1
   target: {fileID: 923658857}
+  rotateSpeed: 3
 --- !u!212 &1337023890
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6719,10 +6730,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d61d09eb3b3693d438cf2499c68ee038, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  food: {fileID: 0}
   speed: 5
   downSpeed: 1
   health: 1
   target: {fileID: 923658857}
+  rotateSpeed: 3
 --- !u!212 &1361417194
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6780,6 +6793,63 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4512672598293811253, guid: 740d2e1e180f55f4cb4fa07a25d9b4a4, type: 3}
   m_PrefabInstance: {fileID: 4512672599692945000}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1520536298
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5116335793939139419, guid: 42d1a1a802a05d447a2633cd23b5788e, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5116335793939139419, guid: 42d1a1a802a05d447a2633cd23b5788e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -5.4299517
+      objectReference: {fileID: 0}
+    - target: {fileID: 5116335793939139419, guid: 42d1a1a802a05d447a2633cd23b5788e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 5.6104918
+      objectReference: {fileID: 0}
+    - target: {fileID: 5116335793939139419, guid: 42d1a1a802a05d447a2633cd23b5788e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5116335793939139419, guid: 42d1a1a802a05d447a2633cd23b5788e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5116335793939139419, guid: 42d1a1a802a05d447a2633cd23b5788e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5116335793939139419, guid: 42d1a1a802a05d447a2633cd23b5788e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5116335793939139419, guid: 42d1a1a802a05d447a2633cd23b5788e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5116335793939139419, guid: 42d1a1a802a05d447a2633cd23b5788e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5116335793939139419, guid: 42d1a1a802a05d447a2633cd23b5788e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5116335793939139419, guid: 42d1a1a802a05d447a2633cd23b5788e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5116335793939139423, guid: 42d1a1a802a05d447a2633cd23b5788e, type: 3}
+      propertyPath: m_Name
+      value: daBigEvil
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 42d1a1a802a05d447a2633cd23b5788e, type: 3}
 --- !u!1 &1609656116
 GameObject:
   m_ObjectHideFlags: 0
@@ -6864,10 +6934,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d61d09eb3b3693d438cf2499c68ee038, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  food: {fileID: 0}
   speed: 5
   downSpeed: 1
   health: 1
   target: {fileID: 923658857}
+  rotateSpeed: 3
 --- !u!212 &1609656120
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7039,10 +7111,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d61d09eb3b3693d438cf2499c68ee038, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  food: {fileID: 0}
   speed: 5
   downSpeed: 1
   health: 1
   target: {fileID: 923658857}
+  rotateSpeed: 3
 --- !u!212 &1936679435
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7194,10 +7268,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d61d09eb3b3693d438cf2499c68ee038, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  food: {fileID: 0}
   speed: 5
   downSpeed: 1
   health: 1
   target: {fileID: 923658857}
+  rotateSpeed: 3
 --- !u!212 &1971347963
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7334,10 +7410,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d61d09eb3b3693d438cf2499c68ee038, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  food: {fileID: 0}
   speed: 5
   downSpeed: 1
   health: 1
   target: {fileID: 923658857}
+  rotateSpeed: 3
 --- !u!212 &2135586245
 SpriteRenderer:
   m_ObjectHideFlags: 0

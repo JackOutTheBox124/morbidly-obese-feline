@@ -24,7 +24,7 @@ public class Feline_Attack : MonoBehaviour
         {
             heartBurn.gameObject.SetActive(true);
             _bloodSugar--;
-            heartBurn.gameObject.transform.position = this.transform.position + new Vector3(0,7,0);
+            heartBurn.gameObject.transform.position = this.transform.position + new Vector3(0,8f,0);
         }
         else
         {
